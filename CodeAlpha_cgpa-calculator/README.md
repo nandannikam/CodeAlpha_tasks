@@ -34,7 +34,7 @@ Bash - g++ cpga_calculator_code.cpp -o cpga_calculator_code
 
 3. Run the executable:
 
-Windows: cpga_calculator_code.exe
+Windows: cpga_calculator_code.exe <br>
 Linux/macOS: ./cpga_calculator_code
 
 ## 💻 Example Output
