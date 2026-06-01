@@ -30,12 +30,12 @@ To compile and run this program, you will need a C++ compiler installed on your 
 
 2. Compile the source code:
 
-Bash - g++ cpga_calculator_code.cpp -o cpga_calculator_code
+Bash - g++ cpga_calculator.cpp -o cpga_calculator
 
 3. Run the executable:
 
-Windows: cpga_calculator_code.exe <br>
-Linux/macOS: ./cpga_calculator_code
+Windows: cpga_calculator.exe <br>
+Linux/macOS: ./cpga_calculator
 
 ## 💻 Example Output
 ![GPA Demo](GPA_Demo.png)
