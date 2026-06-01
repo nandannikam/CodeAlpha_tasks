@@ -38,4 +38,4 @@ Windows: cpga_calculator_code.exe
 Linux/macOS: ./cpga_calculator_code
 
 ## 💻 Example Output
-
+![GPA Demo](GPA_Demo.png)
