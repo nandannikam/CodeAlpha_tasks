@@ -1,6 +1,7 @@
 # include <iostream>
 # include <string>
 # include <vector>
+# include <limits>
 using namespace std;
 
 
@@ -48,6 +49,7 @@ class account : public customer{
 
     void receiver_balance_update(float r){
         balance += r;
+        tran_his.push_back("Received " + to_string(r));
     }
 
 };
@@ -57,24 +59,30 @@ class transaction : public account {
 
     public :
 
-    float amt;
 
     void withdrawal(){
 
+        float amt;
         cout << "Enter the amount to be withdrawn - ";
         cin >> amt;
 
-        if (amt<=balance){
-            balance -= amt;
-            cout << "Amount withdrawaled succesfully !" << endl;
-            tran_his.push_back("Withdrawn " + to_string(amt));
-        } else {
+        if (amt > 0 and amt != 0){
+            if (amt<=balance){
+                balance -= amt;
+                cout << "Amount withdrawaled succesfully !" << endl;
+                tran_his.push_back("Withdrawn " + to_string(amt));
+        
+            } else {
             cout << "Insufficient balance !" << endl;
+            }
+        } else {
+            cout << "Enter valid input !" << endl;
         }
     }
 
     void deposit(){
 
+        float amt;
         cout << "Enter the amount to be deposited - ";
         cin >> amt;
 
@@ -89,6 +97,8 @@ class transaction : public account {
     }
 
     float fund_transfer(){
+
+        float amt;
         cout <<"Enter the amount to be transfered - ";
         cin >> amt;
 
@@ -104,6 +114,7 @@ class transaction : public account {
 
         balance -= amt;
         cout << "Transferring..." << endl;
+        tran_his.push_back("Transferred Out " + to_string(amt));
         return amt;
     }
 
@@ -115,8 +126,21 @@ class transaction : public account {
     void check_balance(){
         cout << "Available Balance - " << balance << endl; 
     }
- 
 
+    void trans_history(){
+
+        if (tran_his.empty()) {
+            cout << "No transactions yet." << endl;
+        } else {
+            cout << "--- Transaction History ---" << endl;
+            for (const string& record : tran_his) {
+                cout << record << endl;
+            }
+            cout << "---END---" << endl;
+        }
+
+    }
+ 
 };
 
 
@@ -136,7 +160,17 @@ int main(){
         cout << "2. Manage existing account" << endl;
         cout << "3. Exit" << endl;
         cout << "Enter your choice - ";
-        cin >> c1;
+
+        if (!(cin >> c1)) {
+            
+
+            cin.clear(); 
+            
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            
+            cout << "Invalid input! Please type a number." << endl;
+            continue; 
+        }
 
         if(c1 == 1){
             transaction newUser;
@@ -179,9 +213,17 @@ int main(){
                     cout << "3. Fund Transfer" << endl;
                     cout << "4. Check Balance" << endl;
                     cout << "5. Change Pin" << endl;
-                    cout << "6. Exit" << endl;
+                    cout << "6. View Transaction history" << endl;
+                    cout << "7. Exit" << endl;
                     cout << "Enter your choice - ";
                     cin >> c2;
+
+                    if (!(cin >> c2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input! Please type a number." << endl;
+                    continue;
+                    }
 
                     if(c2==1){
                         users[found].deposit();
@@ -195,6 +237,11 @@ int main(){
                         float transfer_amt;
                         cout << "Enter the receiver's account number - ";
                         cin >> receiver_acc_num;
+
+                        if (receiver_acc_num == users[found].acc_num) {
+                            cout << "You cannot transfer funds to your own account!" << endl;
+                            continue;
+                        }
 
                         int receiver_found = -1;
 
@@ -212,8 +259,11 @@ int main(){
                         if(receiver_found != -1){
 
                             float receiver_amt = users[found].fund_transfer();
-                            users[receiver_found].receiver_balance_update(receiver_amt);
-                            cout << "Amount transfered to "<<users[receiver_found].name <<" succesfully !" << endl;          
+                            if(receiver_amt>0){
+                                users[receiver_found].receiver_balance_update(receiver_amt);
+                                cout << "Amount transfered to "<<users[receiver_found].name <<" succesfully !" << endl;
+                            }
+                                       
                         }
                             
 
@@ -224,6 +274,9 @@ int main(){
                         users[found].change_pin();
 
                     } else if (c2==6){
+                        users[found].trans_history();
+
+                    } else if (c2==7){
                         cout << "Exiting..." << endl;
                         break;
                     }
