@@ -40,7 +40,7 @@ float cal(){
             cout << "Enter a valid grade." << endl;
         }
 
-        cout << "Grade of course" << i << " - " <<g << endl;
+        cout << "Grade of course " << i << " - " <<g << endl;
 
         total_gp += gp;      
     }
@@ -53,18 +53,25 @@ float cal(){
 void cgpa(int s){
 
     float cgpa = total_gpa/s;
+    cout << " " << endl;
     cout << "CGPA of the candidate is - " << cgpa << endl;
 }
 
 int main(){
 
     int sem;
+
+    cout << "--- WELCOME TO GPA & CGPA CALCULATOR ---" << endl;
+    cout << " " << endl; 
     cout << "Enter the number of semester - ";
     cin >> sem;
 
     for (int l=0; l<sem; l++){
+        cout << " " << endl;
+        cout << "--SEMESTER - " << (l+1) << "--"<< endl;
+        cout << " " << endl;
         total_gpa += cal();
-        cout << "GPA for semester" << l << " - " <<gpa << endl;
+        cout << "GPA for semester " << (l+1) << " - " <<gpa << endl;
     }
 
     cgpa(sem);
