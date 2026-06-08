@@ -1,7 +1,6 @@
 # include <iostream>
 using namespace std;
 
-float gpa = 0.0;
 float total_gpa = 0.0;
 
 float cal(){
@@ -45,7 +44,7 @@ float cal(){
         return 0;
     }
 
-    gpa = total_gp / total_credits;
+    float gpa = total_gp / total_credits;
     
     return gpa;
 }
