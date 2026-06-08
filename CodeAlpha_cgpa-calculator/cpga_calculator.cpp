@@ -15,34 +15,34 @@ float cal(){
     float gp;
 
     for (int i=1; i<=courses;i++){
-        int credit;
+        float credit;
         cout << "Enter the credits for the course " << i << " - ";
         cin >> credit;
         total_credits += credit;
 
-        char g;
+    char g;
+    while (true) {
         cout << "Enter the grade for course " << i << " - ";
         cin >> g;
 
-
-        if(g == 'A'|| g == 'a'){
-            gp = credit * 4.0;
-        } else if (g == 'B'|| g == 'b'){
-            gp = credit * 3.0;
-        } else if (g == 'C'|| g == 'c'){
-            gp = credit * 2.0;
-        } else if (g == 'D'|| g == 'd'){
-            gp = credit * 1.0;
-        } else if (g == 'F'|| g == 'f'){
-            gp = credit * 0;
-        } else {
-            gp = 0;
-            cout << "Enter a valid grade." << endl;
+        if(g=='A'||g=='a'){ gp = credit * 4.0; break; }
+        else if(g=='B'||g=='b'){ gp = credit * 3.0; break; }
+        else if(g=='C'||g=='c'){ gp = credit * 2.0; break; }
+        else if(g=='D'||g=='d'){ gp = credit * 1.0; break; }
+        else if(g=='F'||g=='f'){ gp = 0; break; }
+        else {
+            cout << "Invalid grade! Try again.\n";
         }
+    }
 
         cout << "Grade of course " << i << " - " <<g << endl;
 
         total_gp += gp;      
+    }
+
+    if (total_credits == 0) {
+        cout << "Error: Total credits cannot be zero." << endl;
+        return 0;
     }
 
     gpa = total_gp / total_credits;
@@ -52,9 +52,10 @@ float cal(){
 
 void cgpa(int s){
 
-    float cgpa = total_gpa/s;
+    float final_cgpa = total_gpa/s;
+
     cout << " " << endl;
-    cout << "CGPA of the candidate is - " << cgpa << endl;
+    cout << "CGPA of the candidate is - " << final_cgpa << endl;
 }
 
 int main(){
@@ -65,6 +66,11 @@ int main(){
     cout << " " << endl; 
     cout << "Enter the number of semester - ";
     cin >> sem;
+
+    if (sem <= 0) {
+        cout << "Invalid number of semesters!" << endl;
+        return 0;
+    }
 
     for (int l=0; l<sem; l++){
         cout << " " << endl;
