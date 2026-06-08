@@ -76,8 +76,10 @@ int main(){
         cout << " " << endl;
         cout << "--SEMESTER - " << (l+1) << "--"<< endl;
         cout << " " << endl;
-        total_gpa += cal();
-        cout << "GPA for semester " << (l+1) << " - " <<gpa << endl;
+        float sem_gpa = cal();
+        total_gpa += sem_gpa;
+
+        cout << "GPA for semester " << (l+1) << " - " << sem_gpa << endl;
     }
 
     cgpa(sem);
