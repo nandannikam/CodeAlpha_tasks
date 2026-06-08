@@ -1,41 +1,78 @@
-# GradePoint: C++ GPA & CGPA Calculator
+# GPA & CGPA Calculator - CodeAlpha Internship Task
 
-![C++](https://img.shields.io/badge/C++-11%2B-blue.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
+## 📝 Overview
+This repository contains a **Console-Based GPA and CGPA Calculator** developed in C++ as part of the **CodeAlpha** internship program. The application allows students to calculate their Grade Point Average (GPA) for individual semesters and their Cumulative Grade Point Average (CGPA) across multiple semesters based on a standard 4.0 grading scale.
 
-**GradePoint** is a lightweight, interactive command-line utility written in C++ that allows students to quickly calculate their semester Grade Point Average (GPA) and overall Cumulative Grade Point Average (CGPA). 
+## ✨ Key Features
+* **Dynamic Input:**
+  * Define the number of semesters and the number of courses per semester dynamically.
+* **Semester-wise GPA Calculation:**
+  * Accurately calculates the GPA for each semester based on course credits and letter grades.
+* **Overall CGPA Calculation:**
+  * Aggregates the GPA of all entered semesters to compute the final CGPA.
+* **Robust Grade Validation:**
+  * Accepts standard letter grades (A, B, C, D, F) in both uppercase and lowercase.
+  * Prompts the user to re-enter the grade if an invalid character is inputted, preventing calculation errors.
+* **Standardized 4.0 Scale:**
+  * Uses the standard grading point system: A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0.0.
 
-Whether you are tracking a single semester or your entire degree progress, GradePoint provides a fast and error-free way to convert standard letter grades into actionable academic metrics.
+## 💻 Tech Stack & Concepts Used
+* **Language:** C++
+* **Core Concepts:** * Procedural Programming.
+  * Control Structures (while loops, for loops, if-else statements).
+  * Input/Output Streams (`<iostream>`).
+  * Arithmetic operations and data type casting (handling floating-point math for accurate averages).
 
-## ✨ Features
+## 🚀 How to Run the Project
 
-* **Multi-Semester Tracking:** Calculate GPAs for individual semesters and aggregate them into a final CGPA.
-* **Dynamic Course Load:** Supports an arbitrary number of courses and credit hours per semester.
-* **Standard Grading Scale:** Automatically maps letter grades (A, B, C, D, F) to standard 4.0 scale points (case-insensitive).
-* **Input Validation:** Gracefully handles invalid grade inputs by alerting the user.
+**Prerequisites:**
+You need a C++ compiler (like GCC or Clang) installed on your system.
 
-## 🛠️ Prerequisites
-
-To compile and run this program, you will need a C++ compiler installed on your system.
-* **Windows:** MinGW or MSVC
-* **macOS:** Clang (via Xcode Command Line Tools)
-* **Linux:** GCC (GNU Compiler Collection)
-
-## 🚀 Installation & Usage
-
+**Steps:**
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/GradePoint.git](https://github.com/yourusername/GradePoint.git)
-   cd GradePoint
-
-2. Compile the source code:
-
-Bash - g++ cpga_calculator.cpp -o cpga_calculator
-
+   git clone <your-repository-url>
+   cd <your-repository-folder>
+2. Compile the code:
+   ```bash
+   g++ gpa_calculator.cpp -o gpa_calculator
 3. Run the executable:
 
-Windows: cpga_calculator.exe <br>
-Linux/macOS: ./cpga_calculator
+* Windows:
+   ```bash
+   DOS
+   gpa_calculator.exe
+* Linux/Mac:
 
-## 💻 Example Output
-![GPA Demo](GPA_Demo.png)
+   ```bash
+   ./gpa_calculator
+   
+## 🛠️ Usage Guide
+1. Launch the application.
+
+2. Enter the total number of semesters you wish to calculate the CGPA for.
+
+3. For each semester, the system will prompt you to enter the number of courses.
+
+4. For every course in that semester:
+
+   * Enter the credit weight (e.g., 3 or 4).
+
+   * Enter the letter grade achieved (A, B, C, D, or F).
+
+5. The system will display the calculated GPA at the end of each semester's input.
+
+6. Once all semesters are entered, the program will output the final CGPA.
+
+## 📂 File Structure
+**gpa_calculator.cpp** : The main C++ source code containing the calculation logic                             and user interface.
+
+## 🎓 Acknowledgements
+
+This project was developed as a task for the CodeAlpha software development internship program.
+
+## 👤 Author
+- **Name:** Nandan Nikam
+- **Student ID:**  CA/DF1/67227
+- **Role:** C++ Programming Intern at CodeAlpha
+- **Task:** Task 1 - CGPA Calculator
