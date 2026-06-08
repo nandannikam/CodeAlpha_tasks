@@ -1,4 +1,4 @@
-# 🚀 CodeAlpha C++ Software Development Internship 
+# 🚀 CodeAlpha C++ Programming Internship 
 
 Welcome to my central repository for the **CodeAlpha** internship program! 
 
